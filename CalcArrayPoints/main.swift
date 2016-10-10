@@ -77,7 +77,7 @@ let array : [Int] = [1, 2, 3, 4]
 print("Array add: \(arrayAdd(nums: array))")
 print("Array mult: \(arrayMult(nums: array))")
 
-// Test them to see if they work. Done on Sublime. Not fully functional
+// Tuples
 
 func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
 	let x = point1.x + point2.x
@@ -95,6 +95,34 @@ let point1 = (x: 2, y: 2)
 let point2 = (x: 2, y:2)
 print("Point add: \(addPoint(point1: point1, point2: point2))")
 print("Point sub: \(subtractPoint(point1: point1, point2: point2))")
+
+// Dictionary
+
+let xDict = [
+    "x" : 2,
+    "y" : 2
+]
+
+let yDict = [
+    "x" : 2,
+    "y" : 2
+]
+
+
+func addPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+    let x = point1["x"]! + point2["x"]!
+    let y = point1["y"]! + point2["y"]!
+    return (x, y)
+}
+
+func subtractPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+    let x = point1["x"]! - point2["x"]!
+    let y = point1["y"]! - point2["y"]!
+    return (x, y)
+}
+
+print("Dict add: \(addPointDictionary(point1: xDict, point2: yDict))")
+print("Dict sub: \(subtractPointDictionary(point1: xDict, point2: yDict))")
 
 
 
