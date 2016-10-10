@@ -2,7 +2,7 @@
 //  main.swift
 //  CalcArrayPoints
 //
-//  Created by iGuest on 10/6/16.
+//  Created by Yulong Tan on 10/6/16.
 //  Copyright © 2016 iGuest. All rights reserved.
 //
 
@@ -34,13 +34,13 @@ func divide(a: Int, b: Int) -> Int {
 
 // Multiply and divide with the math method instead
 /*
-math(a: <#T##Int#>, b: <#T##Int#>, op: multiply)
-math(a: <#T##Int#>, b: <#T##Int#>, op: divide)
+ math(a: <#T##Int#>, b: <#T##Int#>, op: multiply)
+ math(a: <#T##Int#>, b: <#T##Int#>, op: divide)
  */
 
 // Generic array function
 func mathArray(nums: [Int], op: ([Int]) -> Int) -> Int {
-	return op(nums)
+    return op(nums)
 }
 
 // Regular array functions
@@ -61,15 +61,15 @@ func arrayMult(nums: [Int]) -> Int {
 }
 
 func count(nums: [Int]) -> Int {
-	return nums.count
+    return nums.count
 }
 
 func avg(nums: [Int]) -> Int {
-	var sum = 0
-	for i in 0...nums.count {
-		sum += nums[i]
-	}
-	return sum / nums.count
+    var sum = 0
+    for i in 0...nums.count {
+        sum += nums[i]
+    }
+    return sum / nums.count
 }
 
 let array : [Int] = [1, 2, 3, 4]
@@ -79,16 +79,16 @@ print("Array mult: \(arrayMult(nums: array))")
 
 // Tuples
 
-func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
-	let x = point1.x + point2.x
-	let y = point1.y + point2.y
-	return (x, y)
+func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Double, Double) {
+    let x = point1.x + point2.x
+    let y = point1.y + point2.y
+    return (Double(x), Double(y))
 }
 
-func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
-	let x = point1.x - point2.x
-	let y = point1.y - point2.y
-	return (x, y)
+func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Double, Double) {
+    let x = point1.x - point2.x
+    let y = point1.y - point2.y
+    return (Double(x), Double(y))
 }
 
 let point1 = (x: 2, y: 2)
@@ -109,20 +109,19 @@ let yDict = [
 ]
 
 
-func addPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+func addPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Double, y: Double) {
     let x = point1["x"]! + point2["x"]!
     let y = point1["y"]! + point2["y"]!
-    return (x, y)
+    return (Double(x), Double(y))
 }
 
-func subtractPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+func subtractPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Double, y: Double) {
     let x = point1["x"]! - point2["x"]!
     let y = point1["y"]! - point2["y"]!
-    return (x, y)
+    return (Double(x), Double(y))
 }
 
 print("Dict add: \(addPointDictionary(point1: xDict, point2: yDict))")
 print("Dict sub: \(subtractPointDictionary(point1: xDict, point2: yDict))")
-
 
 
