@@ -79,9 +79,9 @@ print("Array mult: \(arrayMult(nums: array))")
 
 // Tuples
 
-func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Double, Double) {
-    let x = point1.x + point2.x
-    let y = point1.y + point2.y
+func addPoint(point1: (x: Int? = 0, y: Int? = 0), point2: (x: Int? = 0, y: Int? = 0)) -> (Double, Double) {
+    let x = point1.x! + point2.x!
+    let y = point1.y! + point2.y!
     return (Double(x), Double(y))
 }
 
@@ -91,9 +91,9 @@ func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Doubl
     return (Double(x), Double(y))
 }
 
-let point1 = (x: 2, y: 2)
+let point1 = (x: 2, y:2)
 let point2 = (x: 2, y:2)
-print("Point add: \(addPoint(point1: point1, point2: point2))")
+//print("Point add: \(addPoint(point1: point1, point2: point2))")
 print("Point sub: \(subtractPoint(point1: point1, point2: point2))")
 
 // Dictionary
