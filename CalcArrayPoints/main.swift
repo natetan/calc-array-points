@@ -79,6 +79,7 @@ print("Array mult: \(arrayMult(nums: array))")
 
 // Tuples
 
+// For ints
 func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
     var x1 = point1.x
     var x2 = point2.x
@@ -101,6 +102,7 @@ func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) 
     return (x, y)
 }
 
+// For doubles
 func addPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) -> (Double, Double) {
     var x1 = point1.x
     var x2 = point2.x
@@ -123,7 +125,7 @@ func addPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) ->
     return (x, y)
 }
 
-
+// For ints
 func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
     var x1 = point1.x
     var x2 = point2.x
@@ -146,6 +148,7 @@ func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, 
     return (x, y)
 }
 
+// For doubles
 func subtractPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) -> (Double, Double) {
     var x1 = point1.x
     var x2 = point2.x
@@ -191,25 +194,29 @@ let yDict = [
     "y" : 2
 ]
 
-
+// Ints
 func addPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
     let x = point1["x"]! + point2["x"]!
     let y = point1["y"]! + point2["y"]!
     return (x, y)
 }
 
+// Doubles
 func addPointDictionary(point1: Dictionary<String, Double>, point2: Dictionary<String, Double>) -> (x: Double, y: Double) {
     let x = point1["x"]! + point2["x"]!
     let y = point1["y"]! + point2["y"]!
     return (x, y)
 }
 
+
+// Ints
 func subtractPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
     let x = point1["x"]! - point2["x"]!
     let y = point1["y"]! - point2["y"]!
     return (x, y)
 }
 
+// Doubles
 func subtractPointDictionary(point1: Dictionary<String, Double>, point2: Dictionary<String, Double>) -> (x: Double, y: Double) {
     let x = point1["x"]! - point2["x"]!
     let y = point1["y"]! - point2["y"]!
