@@ -79,6 +79,9 @@ print("Array mult: \(arrayMult(nums: array))")
 
 // Tuples
 
+// Tried to make some of the optionals work with using the ? in some places.
+// Got a lot of errors that wouldn't make the regular functions work, I removed them instead
+
 // For ints
 func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
     var x1 = point1.x
