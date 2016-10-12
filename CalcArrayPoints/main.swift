@@ -83,95 +83,70 @@ print("Array mult: \(multiply(array: array))")
 // Got a lot of errors that wouldn't make the regular functions work, I removed them instead
 
 // For ints
-func add(p1: (x: Int, y: Int), p2: (x: Int, y: Int)) -> (Int, Int) {
-    var x1 = p1.x
-    var x2 = p2.x
-    var y1 = p1.y
-    var y2 = p2.y
-    if (p1.x == nil) {
-        x1 = 0;
-    }
-    if (p2.x == nil) {
-        x2 = 0;
-    }
-    if (p1.y == nil) {
-        y1 = 0;
-    }
-    if (p2.y == nil) {
-        y2 = 0;
-    }
-    let x = x1 + x2
-    let y = y1 + y2
-    return (x, y)
+func add(p1 : (Int, Int), p2 : (Int, Int)) -> (Int, Int) {
+    var result : (x: Int, y: Int);
+    result.x = add(left: p1.0, right: p2.0);
+    result.y = add(left: p1.1, right: p2.1);
+    return result;
 }
 
-// For doubles
-func add(p1: (x: Double, y: Double), p2: (x: Double, y: Double)) -> (Double, Double) {
-    var x1 = p1.x
-    var x2 = p2.x
-    var y1 = p1.y
-    var y2 = p2.y
-    if (p1.x == nil) {
-        x1 = 0;
-    }
-    if (p2.x == nil) {
-        x2 = 0;
-    }
-    if (p1.y == nil) {
-        y1 = 0;
-    }
-    if (p2.y == nil) {
-        y2 = 0;
-    }
-    let x = x1 + x2
-    let y = y1 + y2
-    return (x, y)
+func add(p1 : (Double, Double), p2 : (Double, Double)) -> (Double, Double) {
+    var result : (x: Double, y: Double);
+    result.x = add(left: p1.0, right: p2.0);
+    result.y = add(left: p1.1, right: p2.1);
+    return result;
 }
 
-// For ints
-func subtract(p1: (x: Int, y: Int), p2: (x: Int, y: Int)) -> (Int, Int) {
-    var x1 = p1.x
-    var x2 = p2.x
-    var y1 = p1.y
-    var y2 = p2.y
-    if (p1.x == nil) {
-        x1 = 0;
-    }
-    if (p2.x == nil) {
-        x2 = 0;
-    }
-    if (p1.y == nil) {
-        y1 = 0;
-    }
-    if (p2.y == nil) {
-        y2 = 0;
-    }
-    let x = x1 - x2
-    let y = y1 - y2
-    return (x, y)
+func subtract(p1 : (Int, Int), p2 : (Int, Int)) -> (Int, Int) {
+    var result : (x: Int, y: Int);
+    result.x = subtract(left: p1.0, right: p2.0);
+    result.y = subtract(left: p1.1, right: p2.1);
+    return result;
 }
 
-// For doubles
-func subtract(p1: (x: Double, y: Double), p2: (x: Double, y: Double)) -> (Double, Double) {
-    var x1 = p1.x
-    var x2 = p2.x
-    var y1 = p1.y
-    var y2 = p2.y
-    if (p1.x == nil) {
-        x1 = 0;
+func subtract(p1 : (Double, Double), p2 : (Double, Double)) -> (Double, Double) {
+    var result : (x: Double, y: Double);
+    result.x = subtract(left: p1.0, right: p2.0);
+    result.y = subtract(left: p1.1, right: p2.1);
+    return result;
+}
+
+// Non-two-arity handling
+
+func add(_ points: (Int, Int)...) -> (Int, Int) {
+    var result : (x: Int, y: Int) = (0, 0);
+    for point in points {
+        result.x += point.0;
+        result.y += point.1;
     }
-    if (p2.x == nil) {
-        x2 = 0;
+    return result;
+}
+
+func add(_ points: (Double, Double)...) -> (Double, Double) {
+    var result : (x: Double, y: Double) = (0, 0);
+    for point in points {
+        result.x += point.0;
+        result.y += point.1;
     }
-    if (p1.y == nil) {
-        y1 = 0;
+    return result;
+}
+
+func subtract(_ points: (Int, Int)...) -> (Int, Int) {
+    var result : (x: Int, y: Int) = (0, 0);
+    for point in points {
+        result.x -= point.0;
+        result.y -= point.1;
     }
-    if (p2.y == nil) {
-        y2 = 0;
+    return result;
+}
+
+func subtract(_ points: (Double, Double)...) -> (Double, Double) {
+    var result : (x: Double, y: Double) = (0, 0);
+    for point in points {
+        result.x -= point.0;
+        result.y -= point.1;
     }
-    let x = x1 - x2
-    let y = y1 - y2
-    return (x, y)
+    return result;
 }
 
 let p1 = (x: 2, y:2)
@@ -194,33 +169,49 @@ let yDict = [
 ]
 
 // Ints
-func add(p1: Dictionary<String, Int>, p2: Dictionary<String, Int>) -> (x: Int, y: Int) {
-    let x = p1["x"]! + p2["x"]!
-    let y = p1["y"]! + p2["y"]!
-    return (x, y)
+func add(p1 : [String : Int], p2 : [String : Int]) -> [String : Int]? {
+    var result = [
+        "x" : Int(),
+        "y" : Int()
+    ]
+    if (p1["x"] != nil && p1["y"] != nil && p2["x"] != nil && p2["y"] != nil) {
+        result["x"] = p1["x"]! + p2["x"]!;
+        result["y"] = p1["y"]! + p2["y"]!;
+    }
+    return result
 }
 
 // Doubles
-func add(p1: Dictionary<String, Double>, p2: Dictionary<String, Double>) -> (x: Double, y: Double) {
-    let x = p1["x"]! + p2["x"]!
-    let y = p1["y"]! + p2["y"]!
-    return (x, y)
+func add(p1 : [String : Double], p2 : [String : Double]) -> [String : Double]? {
+    var result = [
+        "x" : Double(),
+        "y" : Double()
+    ]
+    result["x"] = p1["x"]! + p2["x"]!;
+    result["y"] = p1["y"]! + p2["y"]!;
+    return result
 }
 
 
 // Ints
-func subtract(p1: Dictionary<String, Int>, p2: Dictionary<String, Int>) -> (x: Int, y: Int) {
-    let x = p1["x"]! - p2["x"]!
-    let y = p1["y"]! - p2["y"]!
-    return (x, y)
+func subtract(p1 : [String : Int], p2 : [String : Int]) -> [String : Int]? {
+    var result = [
+        "x" : Int(),
+        "y" : Int()
+    ]
+    result["x"] = p1["x"]! - p2["x"]!;
+    result["y"] = p1["y"]! - p2["y"]!;
+    return result
 }
 
 // Doubles
-func subtract(p1: Dictionary<String, Double>, p2: Dictionary<String, Double>) -> (x: Double, y: Double) {
-    let x = p1["x"]! - p2["x"]!
-    let y = p1["y"]! - p2["y"]!
-    return (x, y)
+
+func subtract(p1 : [String : Double], p2 : [String : Double]) -> [String : Double]? {
+    var result = [
+        "x" : Double(),
+        "y" : Double()
+    ]
+    result["x"] = p1["x"]! - p2["x"]!;
+    result["y"] = p1["y"]! - p2["y"]!;
+    return result
 }
-
-
-
