@@ -11,25 +11,25 @@ import Foundation
 print("Hello, World!")
 
 // Generic math function
-func math(a: Int, b: Int, op: (Int, Int) -> Int) -> Int {
-    return op(a, b)
+func mathOperation(left: Int, right: Int, operation: (Int, Int) -> Int) -> Int {
+    return operation(left, right)
 }
 
 // Standard operations
-func add(a: Int, b: Int) -> Int {
-    return a + b;
+func add(left: Int, right: Int) -> Int {
+    return left + right;
 }
 
-func subtract(a: Int, b: Int) -> Int {
-    return a - b;
+func subtract(left: Int, right: Int) -> Int {
+    return left - right;
 }
 
-func multiply(a: Int, b: Int) -> Int {
-    return a * b;
+func multiply(left: Int, right: Int) -> Int {
+    return left * right;
 }
 
-func divide(a: Int, b: Int) -> Int {
-    return a / b;
+func divide(left: Int, right: Int) -> Int {
+    return left / right;
 }
 
 // Multiply and divide with the math method instead
@@ -39,43 +39,43 @@ func divide(a: Int, b: Int) -> Int {
  */
 
 // Generic array function
-func mathArray(nums: [Int], op: ([Int]) -> Int) -> Int {
-    return op(nums)
+func reduce(array: [Int], operation: ([Int]) -> Int) -> Int {
+    return operation(array)
 }
 
 // Regular array functions
-func arrayAdd(nums: [Int]) -> Int {
+func add(array: [Int]) -> Int {
     var sum = 0;
-    for i in 0...nums.count - 1 {
-        sum += nums[i]
+    for i in 0...array.count - 1 {
+        sum += array[i]
     }
     return sum
 }
 
-func arrayMult(nums: [Int]) -> Int {
+func multiply(array: [Int]) -> Int {
     var product = 1;
-    for i in 0...nums.count - 1 {
-        product *= nums[i]
+    for i in 0...array.count - 1 {
+        product *= array[i]
     }
     return product
 }
 
-func count(nums: [Int]) -> Int {
-    return nums.count
+func count(array: [Int]) -> Int {
+    return array.count
 }
 
-func avg(nums: [Int]) -> Int {
+func average(array: [Int]) -> Int {
     var sum = 0
-    for i in 0...nums.count {
-        sum += nums[i]
+    for i in 0...array.count {
+        sum += array[i]
     }
-    return sum / nums.count
+    return sum / array.count
 }
 
 let array : [Int] = [1, 2, 3, 4]
 
-print("Array add: \(arrayAdd(nums: array))")
-print("Array mult: \(arrayMult(nums: array))")
+print("Array add: \(add(array: array))")
+print("Array mult: \(multiply(array: array))")
 
 // Tuples
 
@@ -83,21 +83,21 @@ print("Array mult: \(arrayMult(nums: array))")
 // Got a lot of errors that wouldn't make the regular functions work, I removed them instead
 
 // For ints
-func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
-    var x1 = point1.x
-    var x2 = point2.x
-    var y1 = point1.y
-    var y2 = point2.y
-    if (point1.x == nil) {
+func add(p1: (x: Int, y: Int), p2: (x: Int, y: Int)) -> (Int, Int) {
+    var x1 = p1.x
+    var x2 = p2.x
+    var y1 = p1.y
+    var y2 = p2.y
+    if (p1.x == nil) {
         x1 = 0;
     }
-    if (point2.x == nil) {
+    if (p2.x == nil) {
         x2 = 0;
     }
-    if (point1.y == nil) {
+    if (p1.y == nil) {
         y1 = 0;
     }
-    if (point2.y == nil) {
+    if (p2.y == nil) {
         y2 = 0;
     }
     let x = x1 + x2
@@ -106,21 +106,21 @@ func addPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) 
 }
 
 // For doubles
-func addPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) -> (Double, Double) {
-    var x1 = point1.x
-    var x2 = point2.x
-    var y1 = point1.y
-    var y2 = point2.y
-    if (point1.x == nil) {
+func add(p1: (x: Double, y: Double), p2: (x: Double, y: Double)) -> (Double, Double) {
+    var x1 = p1.x
+    var x2 = p2.x
+    var y1 = p1.y
+    var y2 = p2.y
+    if (p1.x == nil) {
         x1 = 0;
     }
-    if (point2.x == nil) {
+    if (p2.x == nil) {
         x2 = 0;
     }
-    if (point1.y == nil) {
+    if (p1.y == nil) {
         y1 = 0;
     }
-    if (point2.y == nil) {
+    if (p2.y == nil) {
         y2 = 0;
     }
     let x = x1 + x2
@@ -129,21 +129,21 @@ func addPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) ->
 }
 
 // For ints
-func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, Int) {
-    var x1 = point1.x
-    var x2 = point2.x
-    var y1 = point1.y
-    var y2 = point2.y
-    if (point1.x == nil) {
+func subtract(p1: (x: Int, y: Int), p2: (x: Int, y: Int)) -> (Int, Int) {
+    var x1 = p1.x
+    var x2 = p2.x
+    var y1 = p1.y
+    var y2 = p2.y
+    if (p1.x == nil) {
         x1 = 0;
     }
-    if (point2.x == nil) {
+    if (p2.x == nil) {
         x2 = 0;
     }
-    if (point1.y == nil) {
+    if (p1.y == nil) {
         y1 = 0;
     }
-    if (point2.y == nil) {
+    if (p2.y == nil) {
         y2 = 0;
     }
     let x = x1 - x2
@@ -152,21 +152,21 @@ func subtractPoint(point1: (x: Int, y: Int), point2: (x: Int, y: Int)) -> (Int, 
 }
 
 // For doubles
-func subtractPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double)) -> (Double, Double) {
-    var x1 = point1.x
-    var x2 = point2.x
-    var y1 = point1.y
-    var y2 = point2.y
-    if (point1.x == nil) {
+func subtract(p1: (x: Double, y: Double), p2: (x: Double, y: Double)) -> (Double, Double) {
+    var x1 = p1.x
+    var x2 = p2.x
+    var y1 = p1.y
+    var y2 = p2.y
+    if (p1.x == nil) {
         x1 = 0;
     }
-    if (point2.x == nil) {
+    if (p2.x == nil) {
         x2 = 0;
     }
-    if (point1.y == nil) {
+    if (p1.y == nil) {
         y1 = 0;
     }
-    if (point2.y == nil) {
+    if (p2.y == nil) {
         y2 = 0;
     }
     let x = x1 - x2
@@ -174,16 +174,12 @@ func subtractPoint(point1: (x: Double, y: Double), point2: (x: Double, y: Double
     return (x, y)
 }
 
-let point1 = (x: 2, y:2)
-let point2 = (x: 2, y:2)
+let p1 = (x: 2, y:2)
+let p2 = (x: 2, y:2)
 
-let point3 = (x: 2.2, y:2.2)
-let point4 = (x: 2.2, y:2.2)
+let p3 = (x: 2.2, y:2.2)
+let p4 = (x: 2.2, y:2.2)
 
-print("Point add: \(addPoint(point1: point3, point2: point4))")
-
-print("Point add: \(addPoint(point1: point1, point2: point2))")
-print("Point sub: \(subtractPoint(point1: point1, point2: point2))")
 
 // Dictionary
 
