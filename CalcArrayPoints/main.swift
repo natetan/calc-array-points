@@ -194,35 +194,33 @@ let yDict = [
 ]
 
 // Ints
-func addPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
-    let x = point1["x"]! + point2["x"]!
-    let y = point1["y"]! + point2["y"]!
+func add(p1: Dictionary<String, Int>, p2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+    let x = p1["x"]! + p2["x"]!
+    let y = p1["y"]! + p2["y"]!
     return (x, y)
 }
 
 // Doubles
-func addPointDictionary(point1: Dictionary<String, Double>, point2: Dictionary<String, Double>) -> (x: Double, y: Double) {
-    let x = point1["x"]! + point2["x"]!
-    let y = point1["y"]! + point2["y"]!
+func add(p1: Dictionary<String, Double>, p2: Dictionary<String, Double>) -> (x: Double, y: Double) {
+    let x = p1["x"]! + p2["x"]!
+    let y = p1["y"]! + p2["y"]!
     return (x, y)
 }
 
 
 // Ints
-func subtractPointDictionary(point1: Dictionary<String, Int>, point2: Dictionary<String, Int>) -> (x: Int, y: Int) {
-    let x = point1["x"]! - point2["x"]!
-    let y = point1["y"]! - point2["y"]!
+func subtract(p1: Dictionary<String, Int>, p2: Dictionary<String, Int>) -> (x: Int, y: Int) {
+    let x = p1["x"]! - p2["x"]!
+    let y = p1["y"]! - p2["y"]!
     return (x, y)
 }
 
 // Doubles
-func subtractPointDictionary(point1: Dictionary<String, Double>, point2: Dictionary<String, Double>) -> (x: Double, y: Double) {
-    let x = point1["x"]! - point2["x"]!
-    let y = point1["y"]! - point2["y"]!
+func subtract(p1: Dictionary<String, Double>, p2: Dictionary<String, Double>) -> (x: Double, y: Double) {
+    let x = p1["x"]! - p2["x"]!
+    let y = p1["y"]! - p2["y"]!
     return (x, y)
 }
 
-print("Dict add: \(addPointDictionary(point1: xDict, point2: yDict))")
-print("Dict sub: \(subtractPointDictionary(point1: xDict, point2: yDict))")
 
 
